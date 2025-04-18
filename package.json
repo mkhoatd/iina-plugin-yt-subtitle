@@ -1,0 +1,12 @@
+{
+  "name": "iina-plugin-yt-subtitle",
+  "module": "index.ts",
+  "type": "module",
+  "devDependencies": {
+    "@types/bun": "latest",
+    "iina-plugin-definition": "^0.99.2"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  }
+}
