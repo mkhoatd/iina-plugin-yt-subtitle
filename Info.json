@@ -11,6 +11,6 @@
     "url": "https://github.com/mkhoatd"
   },
   "entry": "dist/index.js",
-  "permissions": ["show-osd", "file-system", "network-request"],
+  "permissions": ["file-system", "network-request"],
   "allowedDomains": ["github.com"]
 }

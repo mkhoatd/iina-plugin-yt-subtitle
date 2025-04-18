@@ -59,6 +59,17 @@ const youtubeProvider: IINA.API.SubtitleProvider<YoutubeSubtitle> = {
         ))
     },
 
+    description(): IINA.API.SubtitleItemDescriptor<YoutubeSubtitle> {
+        return (item: IINA.API.SubtitleItem<YoutubeSubtitle>): { name: string; left: string; right: string } => {
+            const subData = item.data;
+            return {
+                name: subData.name,
+                left: subData.lang ?? "Unknown language",
+                right: subData.generated ? "Auto-generated" : "Manual"
+            };
+        };
+    },
+
     async download(item: IINA.API.SubtitleItem<YoutubeSubtitle>): Promise<string[]> {
         const path = await http.download(item.data.url, "@tmp")
         return [path];
