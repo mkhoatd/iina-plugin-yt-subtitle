@@ -18,7 +18,7 @@
   ],
   "entry": "dist/index.js",
   "global": "dist/global.js",
-  "permissions": ["file-system", "network-request", "show-osd"],
+  "permissions": ["file-system", "network-request"],
   "preferencesPage": "ui/pref.html",
   "allowedDomains": ["*"],
   "preferenceDefaults": {
