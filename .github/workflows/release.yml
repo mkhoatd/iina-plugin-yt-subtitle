@@ -1,9 +1,8 @@
 name: Release
 
 on:
-    push:
-        tags:
-          - 'v*'
+    release:
+        types: [published]
 
 jobs:
     release:
@@ -13,10 +12,29 @@ jobs:
             packages: write
         
         steps:
+            - name: Load secret
+              uses: 1password/load-secrets-action@v2
+              id: secrets
+              with:
+                export-env: false
+              env:
+                OP_SERVICE_ACCOUNT_TOKEN: ${{ secrets.OP_SERVICE_ACCOUNT_TOKEN }}
+                GH_TOKEN: op://GitHub/GitHub/Accounts/mkhoatd
+
             - name: Checkout
               uses: actions/checkout@v3
+        
+            - name: Setup bun
+              uses: oven-sh/setup-bun@v2
 
             - name: Install dependencies
-              run: npm install
+              run: bun i
 
-        
+            - name: Build
+              run: ./build.sh
+
+            - name: Release
+              run: |
+                gh release --repo ${{ github.repository }} upload ${{ github.event.release.tag_name }} iina-plugin-yt-subtitle.iinaplgz
+              env:
+                GH_TOKEN: ${{ steps.secrets.outputs.GH_TOKEN }} 
