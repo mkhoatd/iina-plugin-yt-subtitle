@@ -1,6 +1,8 @@
 #!/bin/bash
 rm -rf dist
+iina-plugin unlink .
 bun build.js
+cp -r ui dist/ui
 
-iina-plugin pack .
+# echo "y" | iina-plugin pack .
 iina-plugin link .

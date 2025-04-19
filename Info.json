@@ -3,14 +3,25 @@
   "identifier": "com.mkhoatd.yt-subtitle",
   "version": "0.0.1",
   "ghRepo": "mkhoatd/iina-plugin-yt-subtitle",
-  "ghVersion": 4,
+  "ghVersion": 1,
   "description": "Download subtitles from Youtube",
   "author": {
     "name": "mkhoatd",
     "email": "mkhoatd@gmail.com",
     "url": "https://github.com/mkhoatd"
   },
+  "subtitleProviders": [
+    {
+      "id": "youtube",
+      "name": "Youtube"
+    }
+  ],
   "entry": "dist/index.js",
-  "permissions": ["file-system", "network-request"],
-  "allowedDomains": ["github.com"]
+  "global": "dist/global.js",
+  "permissions": ["file-system", "network-request", "show-osd"],
+  "preferencesPage": "ui/pref.html",
+  "allowedDomains": ["*"],
+  "preferenceDefaults": {
+    "ytdl_path": ""
+  }
 }
