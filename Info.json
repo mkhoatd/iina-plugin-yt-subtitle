@@ -1,9 +1,9 @@
 {
   "name": "Youtube Subtitle Downloader",
   "identifier": "com.mkhoatd.yt-subtitle",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "ghRepo": "mkhoatd/iina-plugin-yt-subtitle",
-  "ghVersion": 3,
+  "ghVersion": 4,
   "description": "Download subtitles from Youtube",
   "author": {
     "name": "mkhoatd",
